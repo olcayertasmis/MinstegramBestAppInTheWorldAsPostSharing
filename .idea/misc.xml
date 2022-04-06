@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.375" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.375" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_feed_avtivity.xml" value="0.33" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_for_splash_screen.xml" value="0.3541666666666667" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_main.xml" value="0.3491847826086957" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_upload.xml" value="0.3541666666666667" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/recycle_row.xml" value="0.35885416666666664" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/menu/option_menu.xml" value="0.35885416666666664" />
+        <entry key="..\:/Users/Olcay/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_feed_avtivity.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Olcay/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_google_map.xml" value="0.33" />
+        <entry key="..\:/Users/Olcay/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_maps.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Olcay/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_second_maps.xml" value="0.15729166666666666" />
+        <entry key="..\:/Users/Olcay/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_upload.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Olcay/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/recycle_row.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -5,11 +5,15 @@
       <map>
         <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.375" />
         <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.375" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_about_us.xml" value="0.27300613496932513" />
         <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_feed_avtivity.xml" value="0.33" />
         <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_for_splash_screen.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_main.xml" value="0.3491847826086957" />
         <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_upload.xml" value="0.3541666666666667" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/header_menu_on_feed.xml" value="0.33" />
         <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/recycle_row.xml" value="0.35885416666666664" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/menu/menu_for_about_us.xml" value="0.35885416666666664" />
+        <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/menu/menu_on_upload.xml" value="0.35885416666666664" />
         <entry key="..\:/Users/Home/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/menu/option_menu.xml" value="0.35885416666666664" />
         <entry key="..\:/Users/Olcay/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_feed_avtivity.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Olcay/Desktop/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/UL_A.S.11_Simple_My_Instagram_Clone_Java_App-furkanavcu/app/src/main/res/layout/activity_google_map.xml" value="0.33" />
@@ -25,5 +29,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.35885416666666664" />
+      </ProjectState>
+    </option>
   </component>
 </project>

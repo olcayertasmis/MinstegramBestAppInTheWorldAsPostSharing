@@ -2,18 +2,20 @@ package com.redcoresoft.myinstagramclonejavaapp.Activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -29,10 +31,12 @@ import com.redcoresoft.myinstagramclonejavaapp.databinding.ActivityFeedAvtivityB
 import java.util.ArrayList;
 import java.util.Map;
 
-public class FeedActivity extends AppCompatActivity {
+public class FeedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Toolbar toolbar;
-
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ImageButton navigationDrawerButton;
 
 
     private FirebaseAuth auth;
@@ -53,7 +57,7 @@ public class FeedActivity extends AppCompatActivity {
 
         postArrayList = new ArrayList<>();
 
-        firebaseFirestore =FirebaseFirestore.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         getData();
 
@@ -61,31 +65,15 @@ public class FeedActivity extends AppCompatActivity {
         postAdapter = new PostAdapter(postArrayList);
         binding.recyclerView.setAdapter(postAdapter);
 
+        drawerLayout = findViewById(R.id.drawerLayoutOnFeedActivity);
+        navigationView = findViewById(R.id.navigationViewOnFeed);
+        navigationDrawerButton = findViewById(R.id.navigationButtonOnFeed);
+        navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
+        navigationButtonClick();
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater= getMenuInflater();
-        menuInflater.inflate(R.menu.option_menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId()==R.id.add_post){ //Upload Activity
-            Intent intentToUpload = new Intent(FeedActivity.this,UploadActivity.class);
-            startActivity(intentToUpload);
-        }else if (item.getItemId()==R.id.sign_out){ //Sign Out Activity
-
-            auth.signOut();
-
-            Intent intentToMain = new Intent(FeedActivity.this,MainActivity.class);
-            startActivity(intentToMain);
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private void getData() {
 
@@ -98,23 +86,24 @@ public class FeedActivity extends AppCompatActivity {
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
                 if (error != null) {
-                    Toast.makeText(FeedActivity.this,error.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(FeedActivity.this, error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 }
                 if (value != null) {
 
                     //value.getDocuments();// its sending to me a list
 
-                    for (DocumentSnapshot documentSnapshot : value.getDocuments() ){
+                    for (DocumentSnapshot documentSnapshot : value.getDocuments()) {
 
-                        Map<String,Object> data = documentSnapshot.getData();
+                        Map<String, Object> data = documentSnapshot.getData();
 
 
                         //Casting
                         String userEmail = (String) data.get("useremail");
                         String comment = (String) data.get("comment");
                         String downloadUrl = (String) data.get("downloadurlforimage");
+                        String location = (String) data.get("location");
 
-                        Post post = new Post(userEmail,downloadUrl,comment);
+                        Post post = new Post(userEmail, downloadUrl, comment, location);
                         postArrayList.add(post);
 
                     }
@@ -128,10 +117,44 @@ public class FeedActivity extends AppCompatActivity {
 
     }
 
-    public void setUpToolbar(){
+    public void setUpToolbar() {
         toolbar = findViewById(R.id.toolBarAtFeed);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
+    }
+
+
+    public void navigationButtonClick(){
+        navigationDrawerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawerLayout.isDrawerOpen(GravityCompat.END)){
+                    drawerLayout.closeDrawer(GravityCompat.END);
+                }else{
+                    drawerLayout.openDrawer(GravityCompat.END);
+                }
+
+            }
+        });
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId()==R.id.add_post){ //Upload Activity
+            Intent intentToUpload = new Intent(FeedActivity.this,UploadActivity.class);
+            startActivity(intentToUpload);
+        }else if (item.getItemId()==R.id.sign_out){ //Sign Out Activity
+            auth.signOut();
+            Intent intentToMain = new Intent(FeedActivity.this,MainActivity.class);
+            startActivity(intentToMain);
+            finish();
+        }else if (item.getItemId()==R.id.about){
+            Intent intentToAboutUs = new Intent(FeedActivity.this,AboutUsActivity.class);
+            startActivity(intentToAboutUs);
+        }
+        return false;
     }
 }

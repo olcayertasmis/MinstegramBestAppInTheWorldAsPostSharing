@@ -20,13 +20,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activitys.AboutUsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activitys.ForSplashScreen"
-            android:exported="true"
-            ><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -52,14 +55,12 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".Activitys.UploadActivity"
+        <activity
+            android:name=".Activitys.UploadActivity"
             android:parentActivityName=".Activitys.FeedActivity"
-            android:theme="@style/MyBackbuttonIcon"
-            />
+            android:theme="@style/MyBackbuttonIcon" />
         <activity android:name=".Activitys.FeedActivity" />
-        <activity android:name=".Activitys.MainActivity">
-
-        </activity>
+        <activity android:name=".Activitys.MainActivity"></activity>
     </application>
 
 </manifest>

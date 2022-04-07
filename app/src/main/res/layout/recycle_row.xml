@@ -9,19 +9,38 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:id="@+id/txtRecyclerowEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="user email text"
             android:textColor="@color/design_default_color_on_secondary"
             android:textSize="20sp">
             >
-
         </TextView>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+
+        android:background="#888787"/>
+    <TextView
+        android:id="@+id/txtRecyclerRowLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="location"
+        android:textSize="15dp">
+
+    </TextView>
+
 
     <ImageView
         android:id="@+id/imgRecycleRowPostImage"

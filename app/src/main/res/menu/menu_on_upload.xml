@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/go_home"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24">
+
+    </item>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group_divider_bullshit2">
+        <item
+            android:id="@+id/sign_out"
+            android:title="Log Out"
+            android:icon="@drawable/ic_baseline_arrow_back_24">
+
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group_divider_bullshit">
+        <item
+            android:id="@+id/about"
+            android:title="About us"
+            android:icon="@drawable/ic_baseline_info_24">
+
+        </item>
+    </group>
+
+</menu>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawerLayoutOnAboutUsActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.AboutUsActivity"
+    android:background="#FFFFFF">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activitys.AboutUsActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarOfAbutUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2E2B2B"
+            android:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBarAtAboutUs"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#2E2B2B"
+                android:elevation="0dp"
+                app:itemIconTint="#FFFFFF"
+                app:logo="@drawable/logo_minstegramm"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:minHeight="?attr/actionBarSize">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="casual"
+                        android:text="MİNSTEGRAM      "
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/navigationButtonOnAboutUs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="1dp"
+                        android:backgroundTint="#00FFFFFF"
+                        android:src="@drawable/ic_baseline_dehaze_24"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck">
+
+                    </ImageButton>
+
+                </RelativeLayout></androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="365dp"
+            android:layout_height="305dp"
+            android:layout_marginTop="8dp"
+            android:editable="false"
+            android:ems="10"
+            android:enabled="false"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:text="Öncelikle Minstegramı tercih ettiğiniz için teşekkür ediyoruz zaten daha iyi bir app yok başka ne kullanacaksınız ki ? herneyse Minstegram ekibi olarak Kuruluşumuz Kastamonu'da gerçekleşti. İki Bilgisayar Mühendisi öğrencisinin Berbat bir app olmasıyla da bilinen Instagramdan ve onların saçma politikalarından bıkmaları sonucunda Özgür bir Post paylaşım App'i üretmek isteyen özgür öğrenci birey olan bu insanlar çalışmalara başladı. Böylece Minstegram Dünyaya geldi Hoşgeldin Ebubekir Minstegram bebek !"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Merhaba Sayın Minstegram Kullanıcısı !"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarOfAbutUs" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="15dp"
+            android:text="E-mail : minstegram@gmail.com"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.115"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="İletişim "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navigationViewOnAboutUs"
+        app:headerLayout="@layout/header_menu_on_feed"
+        app:menu="@menu/menu_for_about_us"
+        android:fitsSystemWindows="true"
+        android:layout_gravity = "end">
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

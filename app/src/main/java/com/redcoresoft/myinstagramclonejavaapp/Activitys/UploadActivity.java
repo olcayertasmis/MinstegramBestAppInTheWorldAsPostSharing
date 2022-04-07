@@ -12,8 +12,10 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,9 +28,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -54,13 +59,15 @@ public class UploadActivity extends AppCompatActivity implements LocationListene
     private StorageReference storageReference;
 
     Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ImageButton navigationDrawerButton;
 
 
     Uri imageData;
     ActivityResultLauncher<Intent> activityResultLauncher;
     ActivityResultLauncher<String> permissionLauncher;
     private ActivityUploadBinding binding;
-    Button mapActivityButton;
 
     Button button_location;
     TextView textView_location;
@@ -83,8 +90,14 @@ public class UploadActivity extends AppCompatActivity implements LocationListene
         auth = FirebaseAuth.getInstance();
         storageReference = firebaseStorage.getReference();
 
-        textView_location=findViewById(R.id.text_location);
-        button_location=findViewById(R.id.button_location);
+        textView_location = findViewById(R.id.text_location);
+        button_location = findViewById(R.id.button_location);
+
+        drawerLayout = findViewById(R.id.drawerLayoutOnUploadActivity);
+        navigationView = findViewById(R.id.navigationViewOnUpload);
+        navigationDrawerButton = findViewById(R.id.navigationButtonOnUpload);
+        navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
+        navigationButtonClick();
         //Runtime permissions
 
 
@@ -93,32 +106,60 @@ public class UploadActivity extends AppCompatActivity implements LocationListene
             public void onClick(View v) {
 
 
-              if (ContextCompat.checkSelfPermission(UploadActivity.this,Manifest.permission.ACCESS_FINE_LOCATION)
-                      != PackageManager.PERMISSION_GRANTED) {// request permission
-                  ActivityCompat.requestPermissions(UploadActivity.this,new String[]{
-                          Manifest.permission.ACCESS_FINE_LOCATION
-                  },100);
-              }
-
-              else getLocation();
+                if (ContextCompat.checkSelfPermission(UploadActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {// request permission
+                    ActivityCompat.requestPermissions(UploadActivity.this, new String[]{
+                            Manifest.permission.ACCESS_FINE_LOCATION
+                    }, 100);
+                } else getLocation();
 
 
             }
         });
 
-
     }
 
+    private void navigationButtonClick() {
+        navigationDrawerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (drawerLayout.isDrawerOpen(GravityCompat.END)){
+                    drawerLayout.closeDrawer(GravityCompat.END);
+                }else{
+                    drawerLayout.openDrawer(GravityCompat.END);
+                }
+
+            }
+        });
+    }
+
+    private boolean onNavigationItemSelected(MenuItem menuItem) {
+
+        if (menuItem.getItemId()==R.id.add_post){ //Feed Activity
+            Intent intentToUpload = new Intent(UploadActivity.this,FeedActivity.class);
+            startActivity(intentToUpload);
+        }else if (menuItem.getItemId()==R.id.sign_out){ //Sign Out Activity
+            auth.signOut();
+            Intent intentToMain = new Intent(UploadActivity.this,MainActivity.class);
+            startActivity(intentToMain);
+            finish();
+        }else if (menuItem.getItemId()==R.id.about){ //About Activity
+            Intent intentToAboutUs = new Intent(UploadActivity.this,AboutUsActivity.class);
+            startActivity(intentToAboutUs);
+        }
+
+        return false;
+    }
 
 
     @SuppressLint("MissingPermission")
     private void getLocation() {
 
         try {
-            locationManager=(LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5,UploadActivity.this);
+            locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, UploadActivity.this);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -145,15 +186,18 @@ public class UploadActivity extends AppCompatActivity implements LocationListene
                         public void onSuccess(Uri uri) {
                             String downloadUrlForImage = uri.toString();
                             String comment = binding.txtsharedComment.getText().toString();
+                            String location = textView_location.getText().toString();
 
                             FirebaseUser user = auth.getCurrentUser();
                             String email = user.getEmail();
+
 
                             HashMap<String, Object> postData = new HashMap<>();
                             postData.put("useremail", email);
                             postData.put("downloadurlforimage", downloadUrlForImage);
                             postData.put("comment", comment);
                             postData.put("date", FieldValue.serverTimestamp());
+                            postData.put("location", location);
 
                             firebaseFirestore.collection("Posts").add(postData).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
@@ -254,17 +298,26 @@ public class UploadActivity extends AppCompatActivity implements LocationListene
         Toast.makeText(this, "Lokasyonunuz Alınıyor", Toast.LENGTH_SHORT).show();
         try {
             Geocoder geocoder = new Geocoder(UploadActivity.this, Locale.getDefault());
-            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
-            String address = addresses.get(0).getAddressLine(0);
+            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+            String address;
+            if (addresses.get(0).getSubAdminArea() != null) { // Başakşehir + istanbul + kayabaşı bulvarı
+               address = addresses.get(0).getAdminArea() + " " + addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getThoroughfare() ;
+            }
+            else if (addresses.get(0).getAddressLine(0) != null) {
+                address = addresses.get(0).getAddressLine(0);
+            } else {
+                address = addresses.get(0).getCountryName();
+            }
 
             textView_location.setText(address);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-    public void setUpToolbar(){
+
+    public void setUpToolbar() {
         toolbar = findViewById(R.id.toolBarAtFeed);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);

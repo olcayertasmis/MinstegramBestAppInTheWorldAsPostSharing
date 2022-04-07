@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawerLayoutOnFeedActivity"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     android:id="@+id/recyclerViewFeed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,22 +33,37 @@
             app:layout_scrollFlags="scroll|enterAlways"
             android:minHeight="?attr/actionBarSize">
 
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
+                android:layout_height="match_parent"
                 android:layout_centerVertical="true"
                 android:fontFamily="casual"
-                android:text="MİNSTEGRAM"
+                android:text="MİNSTEGRAM        "
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/navigationButtonOnFeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="1dp"
+
+                android:backgroundTint="#00FFFFFF"
+                android:src="@drawable/ic_baseline_dehaze_24"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck">
+
+            </ImageButton>
+
 
         </RelativeLayout></androidx.appcompat.widget.Toolbar>
 
@@ -62,4 +81,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarOfFeed" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navigationViewOnFeed"
+        app:headerLayout="@layout/header_menu_on_feed"
+        app:menu="@menu/option_menu"
+        android:fitsSystemWindows="true"
+        android:layout_gravity = "end">
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>

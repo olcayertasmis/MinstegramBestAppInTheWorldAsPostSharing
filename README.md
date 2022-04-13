@@ -16,6 +16,11 @@ users can share post with images and comment. All users able to see all posts
 
 # Minstegram Screenshots and Explanations
 -----------------------------------------------
+# Launch
+
+- Welcome with a sincere and simple design
+
+![minslaunch](https://user-images.githubusercontent.com/75525280/163266566-646e488a-eac7-478c-8328-9ea4a24d53a0.jpeg)
 
 # Entrance
 
@@ -23,13 +28,14 @@ users can share post with images and comment. All users able to see all posts
 ----
 - I can easily perform these operations using firebase and firebase libraries.
 
-![minsgiris](https://user-images.githubusercontent.com/57073283/145711973-055bb63c-4f6a-4438-9ea8-a7f28f4341ed.jpeg)
+![minsgiris](https://user-images.githubusercontent.com/75525280/163266547-4acb81f0-e166-45cd-85af-61f4b4b57e49.jpeg)
+![minsregister](https://user-images.githubusercontent.com/75525280/163266555-9d730e83-2b5e-4222-928f-4c19c5f31d8b.jpeg)
 
 # Feed Of Minstegram
 
 - On this screen, all users can see all posts shared by each other.
 
-![feed](https://user-images.githubusercontent.com/57073283/145712086-5211951b-7ba3-43d1-9ce8-e44a929b2255.jpeg)
+![feed](https://user-images.githubusercontent.com/75525280/163266559-157f3c6d-94c7-40eb-92b9-22766ec566c3.jpeg)
 
 - I got this view using recyclerview construct
 
@@ -39,13 +45,13 @@ users can share post with images and comment. All users able to see all posts
 
 - The user can share a new post or log out of her/his account via the options in the menu
 
-![optionsmins](https://user-images.githubusercontent.com/57073283/145712359-10afbbdf-0645-4e79-ae4e-2f6daf96501b.jpeg)
+![optionsmins](https://user-images.githubusercontent.com/75525280/163266561-684fd397-7281-48ae-9432-e1e42f4539b0.jpeg)
 
 # Post Sharing Screen
 
 - On this screen, the user adds the comment and picture of the post they want to share.
 
-![sharepost](https://user-images.githubusercontent.com/57073283/145712482-846a0c75-53d9-4777-8b24-4073b189bf27.jpeg)
+![sharepost](https://user-images.githubusercontent.com/75525280/163266562-195a8fb5-578c-49fe-88be-01383cefee65.jpeg)
 
 
 If you wish, you can download the apk and try the application.
